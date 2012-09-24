@@ -9,7 +9,7 @@ BIONIC_ICS := true
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := android/regex/regex.c
 LOCAL_C_INCLUDES := $(BB_PATH)/android/regex
-LOCAL_CFLAGS := -Wno-sign-compare
+LOCAL_CFLAGS := -fno-strict-aliasing -Wno-sign-compare
 LOCAL_MODULE := libclearsilverregex
 include $(BUILD_STATIC_LIBRARY)
 
@@ -98,6 +98,7 @@ BUSYBOX_C_INCLUDES = \
 
 BUSYBOX_CFLAGS = \
 	-Werror=implicit \
+	-fno-strict-aliasing \
 	-DNDEBUG \
 	-DANDROID \
 	-include include-$(BUSYBOX_CONFIG)/autoconf.h \
